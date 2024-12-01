@@ -53,7 +53,6 @@ int maxSubArray(vector<int>& nums) {
 	}
 	return {max_sum};
 }
-
 int main() {
 	//開啟檔案
 	ifstream inputFile("input");

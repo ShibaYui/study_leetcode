@@ -38,7 +38,6 @@ vector<int> twoSum(vector<int>& nums, int target) {
 	return {};	//如果無解
 }
 
-
 int main() {
 	//開啟檔案
 	ifstream inputFile("input");
