@@ -26,15 +26,13 @@ TreeNode* invertTree(TreeNote* root) {
 	//遞迴處理，前序走訪
 	//子樹由上到下左右交換
 	//依序中>左>走訪/交換（前序）
-	if (root==NULL) {
-		//如input為空值，直接回傳
-		//空節點不需反轉
-		return root;
-		}
+	if (root==NULL) return root;
+		//如input為NULL，直接回傳
+		
 	swap(root->left, root->right);
 	invertTree(root->left);
-	invertTree(root->right);}
-
+	invertTree(root->right);
+	}
 
 int main() {
 	//透過ifstream讀取testcase"input", #include<fstream>
