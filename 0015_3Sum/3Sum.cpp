@@ -31,11 +31,37 @@
 			Explanation: The only possible triplet sums up to 0.
 
 */
+
+/*
+	Unfinish!!
+*/
 #include<iostream>
 #include<fstream>
 #include<vector>
 using namespace std;
 vector<vector<int>> threeSum(vector<int>& nums) {
+	//input: vetcor<int> result
+	//output: return result
+	vector<vector<int>> result;
+
+	//sort, small to big
+	sort(nums.begin(), nums.end());
+
+	//using double pointer
+	for (int i=0; i<nums.size(); ++i) {
+		//if nums[0]>0, it's impossible 3-Sum=0
+		if (nums[0]>0) break;
+		
+		if (i>0 && nums[i]==nums[i-1]) continue;
+		int left=i+1;
+		int right=nums.size()-1;	
+		while (left<right) {
+			if (nums(left)+nums[right]+nums[i] > 0) --right;
+			else if (nums(left)+nums[right]+nums[i] < 0) ++left;
+			else result.push_back(vector<int>{nums[i], nums[++left], nums[--right]});
+			}
+		}
+	return result;
 	}
 int main() {
 	}
