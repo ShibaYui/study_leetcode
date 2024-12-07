@@ -41,6 +41,7 @@ using namespace std;
             (指向目前節點, 和前一個節點)
             先左走訪：
                 !inOrderTraversal(root->left, prev) return -1;
+
             走訪過程中如出現目前節點值(root->val)大於上一個節點(prev->val)，回傳-1(BST中子樹皆小於根)
                 prev != NULL && (prev->val) >= (root->val) return -1;
 
@@ -55,11 +56,21 @@ using namespace std;
         bool value == false
         */
 int inOrderTraversal(TreeNode* root, TreeNode*& prev) {
-	if(root==NULL) return 0;
+	if(root==NULL) return true;
+	
+	//遍歷左子樹，同時檢查節點
+	//如不是左子樹，即不合法，回傳false
 	if(!inOrderTraversal(root->left, prev)) return false;
+
+	//如前一節點值>=目前節點值，就不符合BST定義（中序走訪時由小到大）
+	//回傳false
+	//root: root指標
+	//root->val: root指向的值
 	if(prev!=NULL && prev->val => root->val) return false;
 	prev=root;
-	return (root->right, prev);
+
+	//遞迴定義：呼叫自己
+	return inOrderTraversal(root->right, prev);
 	}
 bool vBST(TreeNode* root) {
 	TreeNode* prev=NULL;
